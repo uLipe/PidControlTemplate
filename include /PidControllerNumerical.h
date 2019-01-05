@@ -14,7 +14,25 @@ typedef struct {
     PidControllerInterface interface;
 }PidNumerical;
 
+/**
+ * @brief initiliaze Pid controller based on numerical approach
+ * @param self numerical pid controller object
+ * @param settings pid controllers initial settings
+ * @return 0 on success, otherwise -1
+ */ 
 int PidControlllerNumericalInit(PidNumerical *self, PidControllerSettings *settings);
-PidControllerInterface *PidControllerNumericalGetInterface(PidNumerical *self);
+
+/**
+ * @brief gets the controller interface to use its common methods
+ * @param self numericla pid controller object
+ * @return returns the interface of pid object, NULL on error
+ */ 
+static inline PidControllerInterface *PidControllerNumericalGetInterface(PidNumerical *self) {
+    if(self) {
+        return &self->interface;
+    } else {
+        return NULL;
+    }
+}
 
 #endif

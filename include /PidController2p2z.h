@@ -11,7 +11,25 @@ typedef struct {
     PidControllerInterface interface;
 }Pid2p2z;
 
+/**
+ * @brief initiliaze Pid controller based on 2p2z approach
+ * @param self 2p2z pid controller object
+ * @param settings pid controllers initial settings
+ * @return 0 on success, otherwise -1
+ */ 
 int PidControlller2p2zInit(Pid2p2z *self, PidControllerSettings *settings);
-PidControllerInterface *PidController2p2zGetInterface(Pid2p2z *self);
 
+
+/**
+ * @brief gets the controller interface to use its common methods
+ * @param self 2p2z pid controller object
+ * @return returns the interface of pid object, NULL on error
+ */ 
+static inline PidControllerInterface *PidController2p2zGetInterface(Pid2p2z *self) {
+    if(self) {
+        return &self->interface;
+    } else {
+        return NULL;
+    }
+}
 #endif
