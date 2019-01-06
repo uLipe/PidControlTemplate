@@ -1,4 +1,4 @@
-#include <pid_controller_2p2z.h>
+#include "pid_controller_2p2z.h"
 
 static float update (PidControllerInterface *self, float reference, float measured) {
     if(!self)

@@ -1,9 +1,10 @@
-#include <pid_controller_numerical.h>
+#include "pid_controller_numerical.h"
 
 static float update (PidControllerInterface *self, float reference, float measured) {
     if(!self)
-        return;
-    PidNumerical *pid = PID_CONTAINER_OF(self, Pid2p2z, interface);
+        return 0.0f;
+        
+    PidNumerical *pid = PID_CONTAINER_OF(self, PidNumerical, interface);
     float error = reference - measured;
     float command = (pid->kp * error) +
                     (pid->ki * Integrate(&pid->integrator, error)) +
@@ -15,7 +16,7 @@ static float update (PidControllerInterface *self, float reference, float measur
 static void tune (PidControllerInterface *self, float kp, float ki, float kd) {
     if(!self)
         return;
-    PidNumerical *pid = PID_CONTAINER_OF(self, Pid2p2z, interface);
+    PidNumerical *pid = PID_CONTAINER_OF(self, PidNumerical, interface);
     
     pid->kp = kp;
     pid->ki = ki;

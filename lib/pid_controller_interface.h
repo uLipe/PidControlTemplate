@@ -2,13 +2,12 @@
 #define __PID_CONTROLLER_INTERFACE_H
 
 #include <string.h> //for NULL
-#include <pid_macros.h>
+#include "pid_macros.h"
 
 /** Generic pid controller interface allowing multiple implementations **/
-struct PidControllerInterfaceObject;
+typedef struct PidControllerInterfaceObject PidControllerInterface;
 
-
-typedef struct PidControllerInterfaceObject{
+struct PidControllerInterfaceObject{
     /**
      * @brief update the pid controller and compute next value
      * @note this function needs to be called periodically
@@ -23,7 +22,8 @@ typedef struct PidControllerInterfaceObject{
      * @brief perform controller internal states reset
      */
     void (*reset) (PidControllerInterface *self);
-} PidControllerInterface;
+};
+
 
 typedef struct {
     float kp;

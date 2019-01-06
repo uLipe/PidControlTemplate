@@ -1,6 +1,8 @@
 #ifndef __PID_MACROS_H
 #define __PID_MACROS_H
 
+#include <stddef.h> //offsetof
+
 /**
  * This macro is used to extract common interface from 
  * specific object that implements it
