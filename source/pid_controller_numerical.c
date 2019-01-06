@@ -1,4 +1,4 @@
-#include <PidControllerNumerical.h>
+#include <pid_controller_numerical.h>
 
 static float update (PidControllerInterface *self, float reference, float measured) {
     if(!self)

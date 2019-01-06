@@ -2,7 +2,7 @@
 #define __PID_CONTROLLER_INTERFACE_H
 
 #include <string.h> //for NULL
-#include <PidMacros.h>
+#include <pid_macros.h>
 
 /** Generic pid controller interface allowing multiple implementations **/
 struct PidControllerInterfaceObject;

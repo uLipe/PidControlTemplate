@@ -1,9 +1,9 @@
 #ifndef __PID_CONTROLLER_NUMERICAL_H
 #define __PID_CONTROLLER_NUMERICAL_H
 
-#include <PidControllerInterface.h>
-#include <TrapezoidalIntegrator.h>
-#include <BackwardDifferentiator.h>
+#include <pid_controller_interface.h>
+#include <trapezoidal_Integrator.h>
+#include <backward_differentiator.h>
 
 typedef struct {
     TrapezoidalIntegrator integrator;
