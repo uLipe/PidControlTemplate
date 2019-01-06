@@ -5,7 +5,6 @@
  * This macro is used to extract common interface from 
  * specific object that implements it
  */
-#define PID_CONTAINER_OF(ptr, type, field)  \
-((type *)(((char *)(ptr)) - offsetof(type, field))) \
+#define PID_CONTAINER_OF(ptr, type, field)  ((type *)(((char *)(ptr)) - offsetof(type, field))) 
 
 #endif
